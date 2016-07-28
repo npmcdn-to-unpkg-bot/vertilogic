@@ -1,0 +1,44 @@
+
+<div masonry class="masonry">
+    <div class="masonry-brick masonry-item" ng-repeat="masonry in masonries" ng-click="show(masonry.id,$index)">
+        <div class="images">
+            <img ng-src="{{masonry.picture}}" class="img-load">
+        </div>
+
+        <div class="masonry-content">
+            <div class="content">
+                <a href="#"><h2>{{masonry.name}}</h2></a>
+                <p>{{masonry.description}}</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="show-item">
+    <div class="articles">
+        <div class="content">
+            <div class="close"><span ng-click="hideShow()">X</span></div>
+            <div class="images">
+                <img ng-src="{{itemShow.picture}}" alt="">
+            </div>
+            <div class="data">
+                <span class="name">{{itemShow.name}}</span>
+                <span class="description">{{itemShow.description}}</span>
+
+
+                <div class="properties">
+                    <span>{{itemShow.properties[0]}}</span>
+                    <span>{{itemShow.properties[1]}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="load-more" ng-click="nextPage()" ng-class="loadDisabled">
+    Load More
+</div>
+
+<div class="footer"></div>

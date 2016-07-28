@@ -1,0 +1,475 @@
+.container {
+  display: block;
+  max-width: 980px;
+  margin: 0 auto;
+  background: white;
+}
+
+main {
+  @include flex-init;
+  @include flex-wrap;
+  width:100%;
+  height:100%;
+  .masonry {
+    padding-bottom: 50px;
+
+    .masonry-active{
+      &:before{
+        opacity:1 !important;
+        z-index:3 !important;
+      }
+    }
+
+    .masonry-item {
+      cursor: pointer;
+      color: white;
+      width: 50%;
+      .images {
+        border: 1px solid white;
+        margin: 10px;
+        position: relative;
+        img {
+          @include trans(all, .3s, ease);
+          display: block;
+          height: 100%;
+          width: 100%;
+          -webkit-filter: grayscale(100%);
+          -webkit-filter: grayscale(1);
+          filter: grayscale(100%);
+        }
+      }
+
+      .masonry-content {
+        position: absolute;
+        width: calc(100% - 22px);
+
+        height: 200px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 100;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        .content {
+          height: 100%;
+          width: 100%;
+          position: relative;
+          @include flex-init;
+          @include flex-wrap;
+          align-items: flex-end;
+          a {
+            @include trans(all, .3s, ease-in);
+            position: absolute;
+            width: 100%;
+            text-align: right;
+            bottom: 5px;
+            opacity: 0;
+            z-index: 1;
+          }
+          h2 {
+            @include trans(all, .2s, cubic-bezier(.46, .35, 0, 1.19));
+            background: rgba(255, 89, 255, 1);
+            background: -moz-linear-gradient(-45deg, rgba(255, 89, 255, 1) 0%, rgba(0, 180, 255, 1) 100%);
+            background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255, 89, 255, 1)), color-stop(100%, rgba(0, 180, 255, 1)));
+            background: -webkit-linear-gradient(-45deg, rgba(255, 89, 255, 1) 0%, rgba(0, 180, 255, 1) 100%);
+            background: -o-linear-gradient(-45deg, rgba(255, 89, 255, 1) 0%, rgba(0, 180, 255, 1) 100%);
+            background: -ms-linear-gradient(-45deg, rgba(255, 89, 255, 1) 0%, rgba(0, 180, 255, 1) 100%);
+            background: linear-gradient(135deg, rgba(255, 89, 255, 1) 0%, rgba(0, 180, 255, 1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff59ff', endColorstr='#00b4ff', GradientType=1);
+            color: white;
+            @include box-shadow-g;
+            padding: 10px;
+            display: inline-block;
+            font-weight: 100;
+            font-size: 25px;
+            margin-right: 10px;
+          }
+          p {
+            @include trans(all, .3s, cubic-bezier(.46, .35, 0, 1.19));
+            @include trans-delay(.3s);
+
+            position: absolute;
+            padding: 22px;
+            width: 100%;
+            background: #dddddd;
+            height: 70px;
+            max-height: 70px;
+            color: $grey-logo;
+            font-size: 15px;
+            bottom: -50px;
+            opacity: 0;
+
+          }
+        }
+
+      }
+
+      &:before{
+        @include trans(all,1s,ease);
+        content: '';
+        position: absolute;
+        width:calc(100% - 20px);
+        height:100%;
+        opacity:0;
+        bottom:0;
+        right:10px;
+        background: white;
+        z-index:-1;
+      }
+
+      &:hover {
+        .masonry-content {
+          a {
+            bottom: 60px;
+            opacity: 1;
+          }
+
+          p {
+            bottom: 0 !important;
+            opacity: 1;
+          }
+        }
+
+        .images {
+          border-color: #f5f5f5;
+
+        }
+
+        img {
+          -webkit-filter: grayscale(0);
+          -webkit-filter: grayscale(0);
+          filter: grayscale(0);
+        }
+      }
+
+    }
+  }
+}
+
+.add-button {
+  @include trans(all, .2s, cubic-bezier(.46, .35, 0, 1.19));
+  cursor: pointer;
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  width: 50px;
+  height: 50px;
+  background: red;
+  padding: 20px 20px;
+  border-radius: 50%;
+  background: rgba(0, 180, 255, 1);
+  background: -moz-linear-gradient(-45deg, rgba(0, 180, 255, 1) 0%, rgba(255, 89, 255, 1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(0, 180, 255, 1)), color-stop(100%, rgba(255, 89, 255, 1)));
+  background: -webkit-linear-gradient(-45deg, rgba(0, 180, 255, 1) 0%, rgba(255, 89, 255, 1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(0, 180, 255, 1) 0%, rgba(255, 89, 255, 1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(0, 180, 255, 1) 0%, rgba(255, 89, 255, 1) 100%);
+  background: linear-gradient(135deg, rgba(0, 180, 255, 1) 0%, rgba(255, 89, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00b4ff', endColorstr='#ff59ff', GradientType=1);
+  @include box-shadow-g;
+  color: white;
+
+  span {
+    display: block;
+    font-size: 30px;
+    @include transform(translate(-4px, -8px));
+    widows: 100%;
+  }
+}
+
+.hide-button {
+  bottom: -100px !important;
+}
+
+.active-form {
+  bottom: 0 !important;
+  width: 450px !important;
+  opacity: 1 !important;
+}
+
+.add-form {
+  @include trans(all, .5s, cubic-bezier(.46, .35, 0, 1.19));
+  @include trans-delay(.2s);
+  position: fixed;
+  right: 5px;
+  bottom: -500px;
+  z-index: 10;
+  width: 0px;
+  opacity: 0;
+  background: white;
+  height:420px;
+  @include box-shadow-g;
+
+  .form {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-align: end;
+
+    .form-head {
+      @include flex-init;
+      background: rgba(255, 89, 255, 1);
+      background: -moz-linear-gradient(-45deg, rgba(255, 89, 255, 1) 0%, rgba(0, 180, 255, 1) 100%);
+      background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255, 89, 255, 1)), color-stop(100%, rgba(0, 180, 255, 1)));
+      background: -webkit-linear-gradient(-45deg, rgba(255, 89, 255, 1) 0%, rgba(0, 180, 255, 1) 100%);
+      background: -o-linear-gradient(-45deg, rgba(255, 89, 255, 1) 0%, rgba(0, 180, 255, 1) 100%);
+      background: -ms-linear-gradient(-45deg, rgba(255, 89, 255, 1) 0%, rgba(0, 180, 255, 1) 100%);
+      background: linear-gradient(135deg, rgba(255, 89, 255, 1) 0%, rgba(0, 180, 255, 1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff59ff', endColorstr='#00b4ff', GradientType=1);
+      .title {
+        @include flex(1, 90%);
+        display: inline-block;
+        height: 50px;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 25px;
+        line-height: 50px;
+        color: white;
+        font-weight: 100;
+      }
+      .close {
+        display: inline-block;
+        @include flex(1, 10%);
+        text-align: center;
+        line-height: 50px;
+        font-weight: bold;
+        color: white;
+        border-left: 1px solid white;
+        cursor: pointer;
+      }
+    }
+    form {
+      height: 90%;
+      width: 100%;
+    }
+    input, textarea {
+      @include trans(border, .3s, ease);
+      border: 1px solid white;
+      font-size: 20px;
+      font-family: $slabo;
+      display: block;
+      padding: 5px;
+      margin: 10px;
+      float: left;
+      background: white;
+      width: calc(100% - 30px);
+    }
+    textarea {
+      resize: none;
+    }
+
+    input[type=submit] {
+      @include trans(all, .3s, ease);
+      cursor: pointer;
+      border: 1px solid #e2e2e2;
+      outline: none;
+      &:hover {
+        background: $grey-logo;
+        border-color: $grey-logo;
+        color: white;
+      }
+    }
+  }
+
+}
+
+.transform-normal{
+  @include transform(scale(1));
+}
+
+.show-item {
+  @include trans(all,.5s,ease-in);
+  position: fixed;
+  background: rgba(73, 126, 233, 1);
+  background: -moz-linear-gradient(-45deg, rgba(73, 126, 233, 1) 0%, rgba(122, 5, 95, 0.63) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(73, 126, 233, 1)), color-stop(100%, rgba(122, 5, 95, 0.63)));
+  background: -webkit-linear-gradient(-45deg, rgba(73, 126, 233, 1) 0%, rgba(122, 5, 95, 0.63) 100%);
+  background: -o-linear-gradient(-45deg, rgba(73, 126, 233, 1) 0%, rgba(122, 5, 95, 0.63) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(73, 126, 233, 1) 0%, rgba(122, 5, 95, 0.63) 100%);
+  background: linear-gradient(135deg, rgba(73, 126, 233, 1) 0%, rgba(122, 5, 95, 0.63) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#497ee9', endColorstr='#7a055f', GradientType=1);
+  width: 100%;
+  height: 100%;
+  z-index:-1;
+  opacity:0;
+  @include all-zero;
+  margin: auto;
+  .articles {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .content {
+      padding: 50px;
+      @include box-shadow-g;
+      position: absolute;
+      width: 90%;
+      height: 90%;
+      @include all-zero;
+      background: $bg-grey;
+      opacity: 1;
+      z-index: 100;
+      @include flex-init;
+      @include flex-wrap;
+      margin: auto;
+      .close {
+        @include flex(1, 100%);
+        text-align: end;
+        span {
+          cursor: pointer;
+          color: $grey-logo;
+          font-size: 30px;
+        }
+      }
+
+      .images {
+        @include flex(1, 65%);
+        @include flex-init;
+        align-items: center;
+        justify-content: center;
+
+        height: 100%;
+        float: left;
+        img {
+          width: auto;
+          height:auto;
+          max-height:700px;
+          max-width:550px;
+
+        }
+      }
+      .data {
+        @include flex(1, 35%);
+        display: inline-block;
+        float: right;
+        margin-top: 150px;
+        text-align: right;
+        color: $grey-logo;
+        span{
+          display: block;
+        }
+        .name{
+          font-family: $slabo;
+          font-size: 40px;
+          margin-bottom: 30px;
+        }
+        .description{
+          margin-bottom: 30px;
+        }
+
+        .properties{
+          span{
+            margin-bottom: 10px;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.load-disabled {
+  background: $grey-logo !important;
+}
+
+.load-more {
+  @include trans(background, .5s, ease);
+  height: 40px;
+  background: rgba(255, 89, 255, 1);
+  background: -moz-linear-gradient(-45deg, rgba(255, 89, 255, 1) 0%, rgba(0, 180, 255, 1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255, 89, 255, 1)), color-stop(100%, rgba(0, 180, 255, 1)));
+  background: -webkit-linear-gradient(-45deg, rgba(255, 89, 255, 1) 0%, rgba(0, 180, 255, 1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(255, 89, 255, 1) 0%, rgba(0, 180, 255, 1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(255, 89, 255, 1) 0%, rgba(0, 180, 255, 1) 100%);
+  background: linear-gradient(135deg, rgba(255, 89, 255, 1) 0%, rgba(0, 180, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff59ff', endColorstr='#00b4ff', GradientType=1);
+  line-height: 40px;
+  text-align: center;
+  color: white;
+  font-weight: 100;
+  cursor: pointer;
+  position: relative;
+  &:hover {
+    @include box-shadow-g;
+  }
+}
+.footer{
+  height:50px;
+  background: $bg-grey;
+}
+
+
+
+// responsif
+
+@media (max-width: 600px) {
+
+  .masonry-item{
+    width:100% !important;
+  }
+
+  .content{
+    width:100% !important;
+    height:100% !important;
+
+    .images{
+      @include flex(1,100%);
+      height:50% !important;
+      img{
+        max-width:calc(100vw - 100px) !important;
+      }
+    }
+    .data{
+      margin-top: 0px !important;
+      text-align: center !important;
+    }
+  }
+
+}
+
+
+@media (min-width: 600px) and (max-width: 800px) {
+  .show-item{
+    .content{
+      width:80% !important;
+      height:80% !important;
+
+
+      .images{
+        @include flex(1,100%);
+        height:50% !important;
+        img{
+          max-width:350px !important;
+
+        }
+      }
+      .data{
+        margin-top: 0px !important;
+        text-align: center !important;
+      }
+    }
+  }
+}
+
+
+@media (min-width: 800px) and (max-width: 1200px) {
+  .show-item{
+    .content{
+      width:80% !important;
+      height:80% !important;
+
+
+      .images{
+        @include flex(1,100%);
+        height:100% !important;
+        img{
+          max-width:300px !important;
+
+        }
+      }
+      .data{
+        text-align: center !important;
+      }
+    }
+  }
+}
+

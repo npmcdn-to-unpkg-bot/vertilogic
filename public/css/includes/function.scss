@@ -1,0 +1,91 @@
+@mixin trans($type,$time,$ease) {
+  -webkit-transition: $type $time $ease;
+  -moz-transition: $type $time $ease;
+  -ms-transition: $type $time $ease;
+  -o-transition: $type $time $ease;
+  transition: $type $time $ease;
+}
+
+@mixin flex-init() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($flex,$percentage) {
+  -webkit-box-flex: $flex $percentage;
+  -moz-box-flex: $flex $percentage;
+  -webkit-flex: $flex $percentage;
+  -ms-flex: $flex $percentage;
+  flex: $flex $percentage;
+}
+
+@mixin flex-important($flex,$percentage) {
+  -webkit-box-flex: $flex $percentage !important;
+  -moz-box-flex: $flex $percentage !important;
+  -webkit-flex: $flex $percentage !important;
+  -ms-flex: $flex $percentage !important;
+  flex: $flex $percentage !important;
+}
+
+@mixin flex-wrap() {
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+}
+
+@mixin all-zero() {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin transform($var) {
+  -webkit-transform: $var;
+  -moz-transform: $var;
+  -ms-transform: $var;
+  -o-transform: $var;
+  transform: $var;
+}
+
+@mixin transform-rotate($deg) {
+  -webkit-transform: rotate($deg+deg);
+  -moz-transform: rotate($deg+deg);
+  -ms-transform: rotate($deg+deg);
+  -o-transform: rotate($deg+deg);
+  transform: rotate($deg+deg);
+}
+
+@mixin transform-skew($deg) {
+  -webkit-transform: skewY($deg+deg);
+  -moz-transform: skewY($deg+deg);
+  -ms-transform: skewY($deg+deg);
+  -o-transform: skewY($deg+deg);
+  transform: skewY($deg+deg);
+}
+
+@mixin trans-delay($time) {
+  -webkit-transition-delay: $time;
+  transition-delay: $time;
+}
+
+@mixin box-shadow-g() {
+  -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+}
+
+@mixin box-shadow($content) {
+  -webkit-box-shadow: $content;
+  -moz-box-shadow: $content;
+  box-shadow: $content;
+}
+
+@mixin box-sizing() {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
