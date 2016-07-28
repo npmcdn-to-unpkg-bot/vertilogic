@@ -117,7 +117,7 @@ verti.controller('VertiController', function ($scope, vertiService, $rootScope) 
             } else {
                 hideForm();
                 vmR.masonries.unshift(result.result);
-                vm.formVal = [];
+                vm.formVal = {};
             }
         })
     }
