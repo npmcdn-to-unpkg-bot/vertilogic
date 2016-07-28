@@ -75,7 +75,7 @@ main {
     main .masonry .masonry-item {
       cursor: pointer;
       color: white;
-      width: 50%; }
+      width: 33.33%; }
       main .masonry .masonry-item .images {
         border: 1px solid white;
         margin: 10px;
